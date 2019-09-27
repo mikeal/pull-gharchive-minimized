@@ -1,0 +1,28 @@
+{
+  "name": "pull-gharchive-minimized",
+  "version": "0.0.0-dev",
+  "main": "index.js",
+  "dependencies": {
+    "bent": "^7.0.1",
+    "jsonstream2": "^2.0.1"
+  },
+  "devDependencies": {
+    "hundreds": "^0.0.2",
+    "standard": "^14.3.1"
+  },
+  "scripts": {
+    "test": "hundreds node test.js"
+  },
+  "keywords": [],
+  "author": "Mikeal Rogers <mikeal.rogers@gmail.com> (https://www.mikealrogers.com/)",
+  "license": "(Apache-2.0 AND MIT)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikeal/pull-gharchive-minimized.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mikeal/pull-gharchive-minimized/issues"
+  },
+  "homepage": "https://github.com/mikeal/pull-gharchive-minimized#readme",
+  "description": ""
+}
