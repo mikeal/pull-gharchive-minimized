@@ -1,4 +1,6 @@
 const bent = require('bent')
+const path = require('path')
+const { createReadStream } = require('fs')
 const jsonstream = require('jsonstream2')
 const get = bent('https://media.githubusercontent.com/media/mikeal/gharchive-minimized/master/')
 
@@ -13,9 +15,14 @@ const filepath = ts => {
   return `${year}/${month}/${day}/${filename}`
 }
 
-const pull = async function * (hour) {
+const pull = async function * (hour, local = false) {
   hour = new Date(hour)
-  const resp = await get(filepath(hour))
+  let resp
+  if (!local) {
+    resp = await get(filepath(hour))
+  } else {
+    resp = createReadStream(path.join(local, filepath(hour)))
+  }
   const decompressor = resp.pipe(createBrotliDecompress())
   const reader = decompressor.pipe(jsonstream.parse())
   yield * reader
